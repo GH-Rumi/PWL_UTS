@@ -4,8 +4,6 @@ namespace App\Filament\Resources\Barangs\Pages;
 
 use App\Filament\Resources\Barangs\BarangResource;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\ForceDeleteAction;
-use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditBarang extends EditRecord
@@ -16,8 +14,6 @@ class EditBarang extends EditRecord
     {
         return [
             DeleteAction::make(),
-            ForceDeleteAction::make(),
-            RestoreAction::make(),
         ];
     }
 }
