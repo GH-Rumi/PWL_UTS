@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 // Gunakan Attributes gaya baru Laravel 12
 #[Fillable(['level_id', 'username', 'nama', 'password'])]
 #[Hidden(['password'])]
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasName
 {
     use HasFactory, Notifiable;
 
@@ -36,6 +37,8 @@ class User extends Authenticatable implements FilamentUser
             'password' => 'hashed', // Memastikan password selalu di-hash otomatis
         ];
     }
+
+    
 
     /* =======================================
        RELASI DATABASE (Sesuai ERD)
@@ -70,10 +73,6 @@ class User extends Authenticatable implements FilamentUser
     }
 
     // Gunakan 'username' untuk login, bukan 'email'
-    public function getAuthIdentifierName()
-    {
-        return 'username';
-    }
 
     // Syarat akses panel Filament (Sementara izinkan semua yang bisa login)
     public function canAccessPanel(Panel $panel): bool
