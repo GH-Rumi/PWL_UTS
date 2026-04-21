@@ -53,13 +53,13 @@ class User extends Authenticatable implements FilamentUser, HasName
     // Relasi ke tabel t_stok (1 User bisa menginput banyak stok)
     public function stoks(): HasMany
     {
-        return $this->hasMany(t_stok::class, 'user_id', 'user_id');
+        return $this->hasMany(stok::class, 'user_id', 'user_id');
     }
 
     // Relasi ke tabel t_penjualan (1 User bisa melayani banyak penjualan)
     public function penjualans(): HasMany
     {
-        return $this->hasMany(t_penjualan::class, 'user_id', 'user_id');
+        return $this->hasMany(penjualan::class, 'user_id', 'user_id');
     }
 
     /* =======================================

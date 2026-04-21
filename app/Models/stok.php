@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class t_stok extends Model
+class stok extends Model
 {
     protected $table = 't_stok';
     protected $primaryKey = 'stok_id';
@@ -18,7 +18,7 @@ class t_stok extends Model
 
     public function barang(): BelongsTo
     {
-        return $this->belongsTo(m_barang::class, 'barang_id', 'barang_id');
+        return $this->belongsTo(Barang::class, 'barang_id', 'barang_id');
     }
 
     public function user(): BelongsTo

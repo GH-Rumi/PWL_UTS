@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class t_penjualan extends Model
+class penjualan extends Model
 {
     protected $table = 't_penjualan';
     protected $primaryKey = 'penjualan_id';
@@ -19,6 +19,6 @@ class t_penjualan extends Model
 
     public function penjualanDetails(): HasMany
     {
-        return $this->hasMany(t_penjualan_detail::class, 'penjualan_id', 'penjualan_id');
+        return $this->hasMany(penjualan_detail::class, 'penjualan_id', 'penjualan_id');
     }
 }

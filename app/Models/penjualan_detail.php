@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class t_penjualan_detail extends Model
+class penjualan_detail extends Model
 {
     protected $table = 't_penjualan_detail';
     protected $primaryKey = 'detail_id';
@@ -13,11 +13,11 @@ class t_penjualan_detail extends Model
 
     public function penjualan(): BelongsTo
     {
-        return $this->belongsTo(t_penjualan::class, 'penjualan_id', 'penjualan_id');
+        return $this->belongsTo(penjualan::class, 'penjualan_id', 'penjualan_id');
     }
 
     public function barang(): BelongsTo
     {
-        return $this->belongsTo(m_barang::class, 'barang_id', 'barang_id');
+        return $this->belongsTo(Barang::class, 'barang_id', 'barang_id');
     }
 }
